@@ -6,6 +6,7 @@ const {
   loginUser,
   revalidateToken,
 } = require("../controllers/auth");
+const { validateFields } = require("../middlewares/validateFields");
 
 router.post(
   "/new",
@@ -15,6 +16,7 @@ router.post(
     check("password", "La contraseña debe de ser de 8 caracteres").isLength({
       min: 8,
     }),
+    validateFields,
   ],
   createUser
 );
@@ -25,6 +27,7 @@ router.post(
     check("password", "La contraseña debe de ser de 8 caracteres").isLength({
       min: 8,
     }),
+    validateFields,
   ],
   loginUser
 );
