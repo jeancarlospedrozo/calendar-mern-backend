@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 
-const connection = async () => {
+const dbConnection = async () => {
   try {
-    mongoose.connect("mongodb://127.0.0.1:27017/test");
+    await mongoose.connect(process.env.DB_CONN);
+
+    console.log("db online");
   } catch (error) {
     console.log(error);
     throw new Error("Error en base de datos");
   }
 };
+
+module.exports = dbConnection;
