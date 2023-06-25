@@ -21,7 +21,7 @@ const updateEvent = (req, res = response) => {
   });
 };
 
-const deleteEvents = (req, res = response) => {
+const deleteEvent = (req, res = response) => {
   res.json({
     ok: true,
     message: "deleteEvents",
@@ -32,5 +32,5 @@ module.exports = {
   getEvents,
   createEvent,
   updateEvent,
-  deleteEvents,
+  deleteEvent,
 };

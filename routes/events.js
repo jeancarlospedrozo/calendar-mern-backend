@@ -4,7 +4,7 @@ const {
   getEvents,
   createEvent,
   updateEvent,
-  deleteEvents,
+  deleteEvent,
 } = require("../controllers/events");
 
 const router = Router();
@@ -14,6 +14,6 @@ router.use(validateJWT);
 router.get("/", getEvents);
 router.post("/", createEvent);
 router.put("/:id", updateEvent);
-router.delete("/:id", deleteEvents);
+router.delete("/:id", deleteEvent);
 
 module.exports = router;
