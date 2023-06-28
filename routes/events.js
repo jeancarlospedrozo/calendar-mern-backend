@@ -6,13 +6,19 @@ const {
   updateEvent,
   deleteEvent,
 } = require("../controllers/events");
+const { check } = require("express-validator");
+const { validateFields } = require("../middlewares/validateFields");
 
 const router = Router();
 
 router.use(validateJWT);
 
 router.get("/", getEvents);
-router.post("/", createEvent);
+router.post(
+  "/",
+  [check("title", "El titulo el obligatorio").not().isEmpty(), validateFields],
+  createEvent
+);
 router.put("/:id", updateEvent);
 router.delete("/:id", deleteEvent);
 
